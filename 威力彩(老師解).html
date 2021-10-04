@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const rand = (min, max) => {
+      return Math.round() * (max - min) + min
+    }
+    const groupA = []
+    // 方法一
+    // for (let i = 0; i < 6; i++) {
+    // 隨機一個數
+    //   const num = rand(1, 38)
+    //   if (groupA.includes(num)) {
+    //     // 如果陣列值重複，則再跑一次迴圈
+    //     i--
+    //   } else {
+    // 如果沒有重複，放進a組陣列
+    //     groupA.push(num)
+    //   }
+    // }
+
+    // document.write(groupA.join(','))
+
+    // 方法二 取到陣列滿6個為止
+    // while(groupA.length<6){
+    // 隨機一個數
+    //   const num = rand(1,38)
+    // 不重複就放入陣列
+    //   if(!groupA.includes(num)){
+    //     groupA.push(num)
+    //   }
+    // }
+
+    // 方法三 
+    // 建立一個威力彩數字球池
+    const numbers = []
+    // 放入38顆球
+    for (let i = 1; i <= 38; i++) {
+      numbers.push(i)
+    }
+    // 從球池取六顆球
+    for (let i = 0; i < 6; i++) {
+      // 隨機從數字球池取一個索引
+      const index = rand(0, numbers.length - 1)
+      groupA.push(numbers[index])
+      numbers.splice(groupA.join(','))
+    }
+
+
+
+
+  </script>
+
+</body>
+
+</html>
